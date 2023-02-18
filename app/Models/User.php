@@ -24,23 +24,9 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'id',
         'name',
-        'firstname',
-        'lastname',
-        'username',
         'email',
         'password',
-        'birthdate',
-        'identity',
-        'email_IsVerified',
-        'email_VerifiedToken',
-        'user_IsVerified',
-        'change_PasswordToken',
-        'who_sub_to_me_count',
-        'alpha_num_id',
-        'last_login',
-        'lastLoginIP',
     ];
 
     /**
@@ -51,7 +37,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'alpha_num_id',
         'two_factor_recovery_codes',
         'two_factor_secret',
     ];

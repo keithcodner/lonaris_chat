@@ -1,315 +1,300 @@
-<div>
-    <div class="w-full h-32" style="background-color: #449388"></div>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-    <div class="container mx-auto" style="margin-top: -128px;">
-        <div class="py-6 h-screen">
-            <div class="flex border border-grey rounded shadow-lg h-full">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-                <!-- Left -->
-                <div class="w-1/3 border flex flex-col">
+<!DOCTYPE html>
+<html class=''>
 
-                    <!-- Header -->
-                    <div class="py-2 px-3 bg-grey-lighter flex flex-row justify-between items-center">
-                        <div>
-                            <img class="w-10 h-10 rounded-full" src="http://andressantibanez.com/res/avatar.png"/>
-                        </div>
+<head>
+    <script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script>
+    <script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script>
+    <script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script>
+    <meta charset='UTF-8'>
+    <meta name="robots" content="noindex">
+    <link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+    <link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+    <link rel="canonical" href="https://codepen.io/emilcarlsson/pen/ZOQZaV?limit=all&page=74&q=contact+" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
 
-                        <div class="flex">
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#727A7E" d="M12 20.664a9.163 9.163 0 0 1-6.521-2.702.977.977 0 0 1 1.381-1.381 7.269 7.269 0 0 0 10.024.244.977.977 0 0 1 1.313 1.445A9.192 9.192 0 0 1 12 20.664zm7.965-6.112a.977.977 0 0 1-.944-1.229 7.26 7.26 0 0 0-4.8-8.804.977.977 0 0 1 .594-1.86 9.212 9.212 0 0 1 6.092 11.169.976.976 0 0 1-.942.724zm-16.025-.39a.977.977 0 0 1-.953-.769 9.21 9.21 0 0 1 6.626-10.86.975.975 0 1 1 .52 1.882l-.015.004a7.259 7.259 0 0 0-5.223 8.558.978.978 0 0 1-.955 1.185z"></path></svg>
-                            </div>
-                            <div class="ml-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path opacity=".55" fill="#263238" d="M19.005 3.175H4.674C3.642 3.175 3 3.789 3 4.821V21.02l3.544-3.514h12.461c1.033 0 2.064-1.06 2.064-2.093V4.821c-.001-1.032-1.032-1.646-2.064-1.646zm-4.989 9.869H7.041V11.1h6.975v1.944zm3-4H7.041V7.1h9.975v1.944z"></path></svg>
-                            </div>
-                            <div class="ml-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#263238" fill-opacity=".6" d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z"></path></svg>
-                            </div>
-                        </div>
+    <script src="https://use.typekit.net/hoy3lrg.js"></script>
+    <script>
+        try{Typekit.load({ async: true });}catch(e){}
+    </script>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+    <link rel='stylesheet prefetch' href='https://applesvg.com/assets/front/css/lonaris_chat_styles.css'>
+
+</head>
+
+<body>
+
+    <div id="frame">
+        <div id="sidepanel">
+            <div id="profile">
+                <div class="wrap">
+                    <img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
+                    <p>Mike Ross</p>
+                    <i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
+                    <div id="status-options">
+                        <ul>
+                            <li id="status-online" class="active"><span class="status-circle"></span>
+                                <p>Online</p>
+                            </li>
+                            <li id="status-away"><span class="status-circle"></span>
+                                <p>Away</p>
+                            </li>
+                            <li id="status-busy"><span class="status-circle"></span>
+                                <p>Busy</p>
+                            </li>
+                            <li id="status-offline"><span class="status-circle"></span>
+                                <p>Offline</p>
+                            </li>
+                        </ul>
                     </div>
-
-                    <!-- Search -->
-                    <div class="py-2 px-2 bg-grey-lightest">
-                        <input type="text" class="w-full px-2 py-2 text-sm" placeholder="Search or start new chat"/>
-                    </div>
-
-                    <!-- Contacts -->
-                    <div class="bg-grey-lighter flex-1 overflow-auto">
-                        <div class="px-3 flex items-center bg-grey-light cursor-pointer">
-                            <div>
-                                <img class="h-12 w-12 rounded-full"
-                                     src="https://darrenjameseeley.files.wordpress.com/2014/09/expendables3.jpeg"/>
-                            </div>
-                            <div class="ml-4 flex-1 border-b border-grey-lighter py-4">
-                                <div class="flex items-bottom justify-between">
-                                    <p class="text-grey-darkest">
-                                        New Movie! Expendables 4
-                                    </p>
-                                    <p class="text-xs text-grey-darkest">
-                                        12:45 pm
-                                    </p>
-                                </div>
-                                <p class="text-grey-dark mt-1 text-sm">
-                                    Get Andrés on this movie ASAP!
-                                </p>
-                            </div>
-                        </div>
-                        <div class="bg-white px-3 flex items-center hover:bg-grey-lighter cursor-pointer">
-                            <div>
-                                <img class="h-12 w-12 rounded-full"
-                                     src="https://www.biography.com/.image/t_share/MTE5NDg0MDU1MTIyMTE4MTU5/arnold-schwarzenegger-9476355-1-402.jpg"/>
-                            </div>
-                            <div class="ml-4 flex-1 border-b border-grey-lighter py-4">
-                                <div class="flex items-bottom justify-between">
-                                    <p class="text-grey-darkest">
-                                        Arnold Schwarzenegger
-                                    </p>
-                                    <p class="text-xs text-grey-darkest">
-                                        12:45 pm
-                                    </p>
-                                </div>
-                                <p class="text-grey-dark mt-1 text-sm">
-                                    I'll be back
-                                </p>
-                            </div>
-                        </div>
-                        <div class="bg-white px-3 flex items-center hover:bg-grey-lighter cursor-pointer">
-                            <div>
-                                <img class="h-12 w-12 rounded-full"
-                                     src="https://www.famousbirthdays.com/headshots/russell-crowe-6.jpg"/>
-                            </div>
-                            <div class="ml-4 flex-1 border-b border-grey-lighter py-4">
-                                <div class="flex items-bottom justify-between">
-                                    <p class="text-grey-darkest">
-                                        Russell Crowe
-                                    </p>
-                                    <p class="text-xs text-grey-darkest">
-                                        12:45 pm
-                                    </p>
-                                </div>
-                                <p class="text-grey-dark mt-1 text-sm">
-                                    Hold the line!
-                                </p>
-                            </div>
-                        </div>
-                        <div class="bg-white px-3 flex items-center hover:bg-grey-lighter cursor-pointer">
-                            <div>
-                                <img class="h-12 w-12 rounded-full"
-                                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGpYTzuO0zLW7yadaq4jpOz2SbsX90okb24Z9GtEvK6Z9x2zS5"/>
-                            </div>
-                            <div class="ml-4 flex-1 border-b border-grey-lighter py-4">
-                                <div class="flex items-bottom justify-between">
-                                    <p class="text-grey-darkest">
-                                        Tom Cruise
-                                    </p>
-                                    <p class="text-xs text-grey-darkest">
-                                        12:45 pm
-                                    </p>
-                                </div>
-                                <p class="text-grey-dark mt-1 text-sm">
-                                    Show me the money!
-                                </p>
-                            </div>
-                        </div>
-                        <div class="bg-white px-3 flex items-center hover:bg-grey-lighter cursor-pointer">
-                            <div>
-                                <img class="h-12 w-12 rounded-full"
-                                     src="https://www.biography.com/.image/t_share/MTE5NTU2MzE2MjE4MTY0NzQ3/harrison-ford-9298701-1-sized.jpg"/>
-                            </div>
-                            <div class="ml-4 flex-1 border-b border-grey-lighter py-4">
-                                <div class="flex items-bottom justify-between">
-                                    <p class="text-grey-darkest">
-                                        Harrison Ford
-                                    </p>
-                                    <p class="text-xs text-grey-darkest">
-                                        12:45 pm
-                                    </p>
-                                </div>
-                                <p class="text-grey-dark mt-1 text-sm">
-                                    Tell Java I have the money
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <!-- Right -->
-                <div class="w-2/3 border flex flex-col">
-
-                    <!-- Header -->
-                    <div class="py-2 px-3 bg-grey-lighter flex flex-row justify-between items-center">
-                        <div class="flex items-center">
-                            <div>
-                                <img class="w-10 h-10 rounded-full" src="https://darrenjameseeley.files.wordpress.com/2014/09/expendables3.jpeg"/>
-                            </div>
-                            <div class="ml-4">
-                                <p class="text-grey-darkest">
-                                    New Movie! Expendables 4
-                                </p>
-                                <p class="text-grey-darker text-xs mt-1">
-                                    Andrés, Tom, Harrison, Arnold, Sylvester
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex">
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#263238" fill-opacity=".5" d="M15.9 14.3H15l-.3-.3c1-1.1 1.6-2.7 1.6-4.3 0-3.7-3-6.7-6.7-6.7S3 6 3 9.7s3 6.7 6.7 6.7c1.6 0 3.2-.6 4.3-1.6l.3.3v.8l5.1 5.1 1.5-1.5-5-5.2zm-6.2 0c-2.6 0-4.6-2.1-4.6-4.6s2.1-4.6 4.6-4.6 4.6 2.1 4.6 4.6-2 4.6-4.6 4.6z"></path></svg>
-                            </div>
-                            <div class="ml-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#263238" fill-opacity=".5" d="M1.816 15.556v.002c0 1.502.584 2.912 1.646 3.972s2.472 1.647 3.974 1.647a5.58 5.58 0 0 0 3.972-1.645l9.547-9.548c.769-.768 1.147-1.767 1.058-2.817-.079-.968-.548-1.927-1.319-2.698-1.594-1.592-4.068-1.711-5.517-.262l-7.916 7.915c-.881.881-.792 2.25.214 3.261.959.958 2.423 1.053 3.263.215l5.511-5.512c.28-.28.267-.722.053-.936l-.244-.244c-.191-.191-.567-.349-.957.04l-5.506 5.506c-.18.18-.635.127-.976-.214-.098-.097-.576-.613-.213-.973l7.915-7.917c.818-.817 2.267-.699 3.23.262.5.501.802 1.1.849 1.685.051.573-.156 1.111-.589 1.543l-9.547 9.549a3.97 3.97 0 0 1-2.829 1.171 3.975 3.975 0 0 1-2.83-1.173 3.973 3.973 0 0 1-1.172-2.828c0-1.071.415-2.076 1.172-2.83l7.209-7.211c.157-.157.264-.579.028-.814L11.5 4.36a.572.572 0 0 0-.834.018l-7.205 7.207a5.577 5.577 0 0 0-1.645 3.971z"></path></svg>
-                            </div>
-                            <div class="ml-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#263238" fill-opacity=".6" d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z"></path></svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Messages -->
-                    <div class="flex-1 overflow-auto" style="background-color: #DAD3CC">
-                        <div class="py-2 px-3">
-
-                            <div class="flex justify-center mb-2">
-                                <div class="rounded py-2 px-4" style="background-color: #DDECF2">
-                                    <p class="text-sm uppercase">
-                                        February 20, 2018
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex justify-center mb-4">
-                                <div class="rounded py-2 px-4" style="background-color: #FCF4CB">
-                                    <p class="text-xs">
-                                        Messages to this chat and calls are now secured with end-to-end encryption. Tap for more info.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex mb-2">
-                                <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
-                                    <p class="text-sm text-teal">
-                                        Sylverter Stallone
-                                    </p>
-                                    <p class="text-sm mt-1">
-                                        Hi everyone! Glad you could join! I am making a new movie.
-                                    </p>
-                                    <p class="text-right text-xs text-grey-dark mt-1">
-                                        12:45 pm
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex mb-2">
-                                <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
-                                    <p class="text-sm text-purple">
-                                        Tom Cruise
-                                    </p>
-                                    <p class="text-sm mt-1">
-                                        Hi all! I have one question for the movie
-                                    </p>
-                                    <p class="text-right text-xs text-grey-dark mt-1">
-                                        12:45 pm
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex mb-2">
-                                <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
-                                    <p class="text-sm text-orange">
-                                        Harrison Ford
-                                    </p>
-                                    <p class="text-sm mt-1">
-                                        Again?
-                                    </p>
-                                    <p class="text-right text-xs text-grey-dark mt-1">
-                                        12:45 pm
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex mb-2">
-                                <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
-                                    <p class="text-sm text-orange">
-                                        Russell Crowe
-                                    </p>
-                                    <p class="text-sm mt-1">
-                                        Is Andrés coming for this one?
-                                    </p>
-                                    <p class="text-right text-xs text-grey-dark mt-1">
-                                        12:45 pm
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex mb-2">
-                                <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
-                                    <p class="text-sm text-teal">
-                                        Sylverter Stallone
-                                    </p>
-                                    <p class="text-sm mt-1">
-                                        He is. Just invited him to join.
-                                    </p>
-                                    <p class="text-right text-xs text-grey-dark mt-1">
-                                        12:45 pm
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex justify-end mb-2">
-                                <div class="rounded py-2 px-3" style="background-color: #E2F7CB">
-                                    <p class="text-sm mt-1">
-                                        Hi guys.
-                                    </p>
-                                    <p class="text-right text-xs text-grey-dark mt-1">
-                                        12:45 pm
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex justify-end mb-2">
-                                <div class="rounded py-2 px-3" style="background-color: #E2F7CB">
-                                    <p class="text-sm mt-1">
-                                        Count me in
-                                    </p>
-                                    <p class="text-right text-xs text-grey-dark mt-1">
-                                        12:45 pm
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex mb-2">
-                                <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
-                                    <p class="text-sm text-purple">
-                                        Tom Cruise
-                                    </p>
-                                    <p class="text-sm mt-1">
-                                        Get Andrés on this movie ASAP!
-                                    </p>
-                                    <p class="text-right text-xs text-grey-dark mt-1">
-                                        12:45 pm
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Input -->
-                    <div class="bg-grey-lighter px-4 py-4 flex items-center">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path opacity=".45" fill="#263238" d="M9.153 11.603c.795 0 1.439-.879 1.439-1.962s-.644-1.962-1.439-1.962-1.439.879-1.439 1.962.644 1.962 1.439 1.962zm-3.204 1.362c-.026-.307-.131 5.218 6.063 5.551 6.066-.25 6.066-5.551 6.066-5.551-6.078 1.416-12.129 0-12.129 0zm11.363 1.108s-.669 1.959-5.051 1.959c-3.505 0-5.388-1.164-5.607-1.959 0 0 5.912 1.055 10.658 0zM11.804 1.011C5.609 1.011.978 6.033.978 12.228s4.826 10.761 11.021 10.761S23.02 18.423 23.02 12.228c.001-6.195-5.021-11.217-11.216-11.217zM12 21.354c-5.273 0-9.381-3.886-9.381-9.159s3.942-9.548 9.215-9.548 9.548 4.275 9.548 9.548c-.001 5.272-4.109 9.159-9.382 9.159zm3.108-9.751c.795 0 1.439-.879 1.439-1.962s-.644-1.962-1.439-1.962-1.439.879-1.439 1.962.644 1.962 1.439 1.962z"></path></svg>
-                        </div>
-                        <div class="flex-1 mx-4">
-                            <input class="w-full border rounded px-2 py-2" type="text"/>
-                        </div>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#263238" fill-opacity=".45" d="M11.999 14.942c2.001 0 3.531-1.53 3.531-3.531V4.35c0-2.001-1.53-3.531-3.531-3.531S8.469 2.35 8.469 4.35v7.061c0 2.001 1.53 3.531 3.53 3.531zm6.238-3.53c0 3.531-2.942 6.002-6.237 6.002s-6.237-2.471-6.237-6.002H3.761c0 4.001 3.178 7.297 7.061 7.885v3.884h2.354v-3.884c3.884-.588 7.061-3.884 7.061-7.885h-2z"></path></svg>
-                        </div>
+                    <div id="expanded">
+                        <label for="twitter"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i></label>
+                        <input name="twitter" type="text" value="mikeross" />
+                        <label for="twitter"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i></label>
+                        <input name="twitter" type="text" value="ross81" />
+                        <label for="twitter"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i></label>
+                        <input name="twitter" type="text" value="mike.ross" />
                     </div>
                 </div>
-
+            </div>
+            <div id="search">
+                <label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
+                <input type="text" placeholder="Search contacts..." />
+            </div>
+            <div id="contacts">
+                <ul>
+                    <li class="contact">
+                        <div class="wrap">
+                            <span class="contact-status online"></span>
+                            <img src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
+                            <div class="meta">
+                                <p class="name">Louis Litt</p>
+                                <p class="preview">You just got LITT up, Mike.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="contact active">
+                        <div class="wrap">
+                            <span class="contact-status busy"></span>
+                            <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                            <div class="meta">
+                                <p class="name">Harvey Specter</p>
+                                <p class="preview">Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="contact">
+                        <div class="wrap">
+                            <span class="contact-status away"></span>
+                            <img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
+                            <div class="meta">
+                                <p class="name">Rachel Zane</p>
+                                <p class="preview">I was thinking that we could have chicken tonight, sounds good?</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="contact">
+                        <div class="wrap">
+                            <span class="contact-status online"></span>
+                            <img src="http://emilcarlsson.se/assets/donnapaulsen.png" alt="" />
+                            <div class="meta">
+                                <p class="name">Donna Paulsen</p>
+                                <p class="preview">Mike, I know everything! I'm Donna..</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="contact">
+                        <div class="wrap">
+                            <span class="contact-status busy"></span>
+                            <img src="http://emilcarlsson.se/assets/jessicapearson.png" alt="" />
+                            <div class="meta">
+                                <p class="name">Jessica Pearson</p>
+                                <p class="preview">Have you finished the draft on the Hinsenburg deal?</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="contact">
+                        <div class="wrap">
+                            <span class="contact-status"></span>
+                            <img src="http://emilcarlsson.se/assets/haroldgunderson.png" alt="" />
+                            <div class="meta">
+                                <p class="name">Harold Gunderson</p>
+                                <p class="preview">Thanks Mike! :)</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="contact">
+                        <div class="wrap">
+                            <span class="contact-status"></span>
+                            <img src="http://emilcarlsson.se/assets/danielhardman.png" alt="" />
+                            <div class="meta">
+                                <p class="name">Daniel Hardman</p>
+                                <p class="preview">We'll meet again, Mike. Tell Jessica I said 'Hi'.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="contact">
+                        <div class="wrap">
+                            <span class="contact-status busy"></span>
+                            <img src="http://emilcarlsson.se/assets/katrinabennett.png" alt="" />
+                            <div class="meta">
+                                <p class="name">Katrina Bennett</p>
+                                <p class="preview">I've sent you the files for the Garrett trial.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="contact">
+                        <div class="wrap">
+                            <span class="contact-status"></span>
+                            <img src="http://emilcarlsson.se/assets/charlesforstman.png" alt="" />
+                            <div class="meta">
+                                <p class="name">Charles Forstman</p>
+                                <p class="preview">Mike, this isn't over.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="contact">
+                        <div class="wrap">
+                            <span class="contact-status"></span>
+                            <img src="http://emilcarlsson.se/assets/jonathansidwell.png" alt="" />
+                            <div class="meta">
+                                <p class="name">Jonathan Sidwell</p>
+                                <p class="preview"><span>You:</span> That's bullshit. This deal is solid.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="bottom-bar">
+                <button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span></button>
+                <button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="contact-profile">
+                <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                <p>Harvey Specter</p>
+                <div class="social-media">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="messages">
+                <ul>
+                    <li class="sent">
+                        <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
+                        <p>How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!</p>
+                    </li>
+                    <li class="replies">
+                        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                        <p>When you're backed against the wall, break the god damn thing down.</p>
+                    </li>
+                    <li class="replies">
+                        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                        <p>Excuses don't win championships.</p>
+                    </li>
+                    <li class="sent">
+                        <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
+                        <p>Oh yeah, did Michael Jordan tell you that?</p>
+                    </li>
+                    <li class="replies">
+                        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                        <p>No, I told him that.</p>
+                    </li>
+                    <li class="replies">
+                        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                        <p>What are your choices when someone puts a gun to your head?</p>
+                    </li>
+                    <li class="sent">
+                        <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
+                        <p>What are you talking about? You do what they say or they shoot you.</p>
+                    </li>
+                    <li class="replies">
+                        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                        <p>Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="message-input">
+                <div class="wrap">
+                    <input type="text" placeholder="Write your message..." />
+                    <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
+                    <button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script>
+        $(".messages").animate({ scrollTop: $(document).height() }, "fast");
+        
+        $("#profile-img").click(function() {
+        	$("#status-options").toggleClass("active");
+        });
+        
+        $(".expand-button").click(function() {
+          $("#profile").toggleClass("expanded");
+        	$("#contacts").toggleClass("expanded");
+        });
+        
+        $("#status-options ul li").click(function() {
+        	$("#profile-img").removeClass();
+        	$("#status-online").removeClass("active");
+        	$("#status-away").removeClass("active");
+        	$("#status-busy").removeClass("active");
+        	$("#status-offline").removeClass("active");
+        	$(this).addClass("active");
+        	
+        	if($("#status-online").hasClass("active")) {
+        		$("#profile-img").addClass("online");
+        	} else if ($("#status-away").hasClass("active")) {
+        		$("#profile-img").addClass("away");
+        	} else if ($("#status-busy").hasClass("active")) {
+        		$("#profile-img").addClass("busy");
+        	} else if ($("#status-offline").hasClass("active")) {
+        		$("#profile-img").addClass("offline");
+        	} else {
+        		$("#profile-img").removeClass();
+        	};
+        	
+        	$("#status-options").removeClass("active");
+        });
+        
+        function newMessage() {
+        	message = $(".message-input input").val();
+        	if($.trim(message) == '') {
+        		return false;
+        	}
+        	$('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
+        	$('.message-input input').val(null);
+        	$('.contact.active .preview').html('<span>You: </span>' + message);
+        	$(".messages").animate({ scrollTop: $(document).height() }, "fast");
+        };
+        
+        $('.submit').click(function() {
+          newMessage();
+        });
+        
+        $(window).on('keydown', function(e) {
+          if (e.which == 13) {
+            newMessage();
+            return false;
+          }
+        });
+        //# sourceURL=pen.js
+    </script>
+</body>
+
+</html>
