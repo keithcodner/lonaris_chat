@@ -23,6 +23,7 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
 
     <script src="https://use.typekit.net/hoy3lrg.js"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
     <script>
         try{Typekit.load({ async: true });}catch(e){}
     </script>
@@ -196,6 +197,7 @@
                         <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
                         <p>How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!</p>
                     </li>
+{{--                     
                     <li class="replies">
                         <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
                         <p>When you're backed against the wall, break the god damn thing down.</p>
@@ -223,15 +225,18 @@
                     <li class="replies">
                         <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
                         <p>Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things.</p>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
             <div class="message-input">
-                <div class="wrap">
-                    <input type="text" placeholder="Write your message..." />
-                    <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
-                    <button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                </div>
+                <form id="form"> 
+                    <div class="wrap">
+                        <input type="text" placeholder="Write your message..." />
+                        <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
+                        <button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                    </div>
+                </form>
+                
             </div>
         </div>
     </div>
