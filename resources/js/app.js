@@ -1,22 +1,25 @@
 import './bootstrap';
 import Alpine from 'alpinejs';
 
-const form = $('#form');
-const inputMassage = $('#input-message');
+const form = document.getElementById('form');
+const inputMassage = document.getElementById('input-message');
 
 form.addEventListener('submit', function(event){
-    const inputValue = inputMassage.val()
+    event.preventDefault();
+    const userInpute = inputMassage.val()
 
     axios.post('/chat-message', {
-        message: inputValue
-    });
-})
+        message: userInpute
+    })
 
-const channel = Echo.channel('public.playground.1');
+    inputMassage.val = "";
+});
+
+const channel = Echo.channel('public.chat.1');
 
 channel.subscribed( () => {
     console.log('subscribed');
-}).listen('.playgroundzzz', (event) => {
+}).listen('.chat-message', (event) => {
     console.log(event);
 });
 

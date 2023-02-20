@@ -22,7 +22,8 @@ class ChatController extends Controller
 
     public function chat_msg(Request $request)
     {
-       
+        event(new \App\Events\ChatMessageEvent($request->message));
+        return null;
     }
 
     public function store(Request $request)
