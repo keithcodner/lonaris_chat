@@ -48,7 +48,7 @@ function login() {
         method: "POST",
         body: JSON.stringify({
             email: 'ttt@tttt.tttt',
-            'password': '1Megaman'
+            'password': 'Password'
         })
     });
     
