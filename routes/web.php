@@ -44,6 +44,6 @@ Route::middleware([
 });
 
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
-Route::get('/chat-message', [ChatController::class, 'chat_msg'])->name('chat-msg');
+Route::post('/chat-message', [ChatController::class, 'chat_msg'])->name('chat-msg');
 
 Route::get('/ws', [ChatController::class, 'ws_test'])->name('ws');

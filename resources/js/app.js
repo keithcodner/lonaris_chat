@@ -2,17 +2,17 @@ import './bootstrap';
 import Alpine from 'alpinejs';
 
 const form = document.getElementById('form');
-const inputMassage = document.getElementById('input-message');
+const inputMessage = document.getElementById('input-message');
 
 form.addEventListener('submit', function(event){
     event.preventDefault();
-    const userInpute = inputMassage.val()
+    const userInput = inputMessage.value;
 
     axios.post('/chat-message', {
-        message: userInpute
+        message: userInput
     })
 
-    inputMassage.val = "";
+    inputMessage.value = "";
 });
 
 const channel = Echo.channel('public.chat.1');
