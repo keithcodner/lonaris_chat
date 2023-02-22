@@ -67,16 +67,7 @@
             </div>
             <div id="contacts">
                 <ul>
-                    <li class="contact">
-                        <div class="wrap">
-                            <span class="contact-status online"></span>
-                            <img src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
-                            <div class="meta">
-                                <p class="name">Louis Litt</p>
-                                <p class="preview">You just got LITT up, Mike.</p>
-                            </div>
-                        </div>
-                    </li>
+
                     <li class="contact active">
                         <div class="wrap">
                             <span class="contact-status busy"></span>
@@ -84,6 +75,17 @@
                             <div class="meta">
                                 <p class="name">Harvey Specter</p>
                                 <p class="preview">Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things.</p>
+                            </div>
+                        </div>
+                    </li>
+{{--                     
+                    <li class="contact">
+                        <div class="wrap">
+                            <span class="contact-status online"></span>
+                            <img src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
+                            <div class="meta">
+                                <p class="name">Louis Litt</p>
+                                <p class="preview">You just got LITT up, Mike.</p>
                             </div>
                         </div>
                     </li>
@@ -166,7 +168,9 @@
                                 <p class="preview"><span>You:</span> That's bullshit. This deal is solid.</p>
                             </div>
                         </div>
-                    </li>
+                    </li> 
+                    
+                    --}}
                 </ul>
             </div>
             <div id="bottom-bar">

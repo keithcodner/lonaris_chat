@@ -62,10 +62,12 @@ function run(){
             'accept': 'application/json'
         },
         credentials: 'include'
-    }).then(() => logout())
+    })
+    // .then(() => logout())
+    // .then(() => {
+    //     return login();
+    // })
     .then(() => {
-        return login();
-    }).then(() => {
         const channel = Echo.private('private.chat.1');
     
         channel.subscribed( () => {
