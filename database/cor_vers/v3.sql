@@ -15,7 +15,7 @@
 
 -- Dumping database structure for lonaris_chat
 DROP DATABASE IF EXISTS `lonaris_chat`;
-CREATE DATABASE IF NOT EXISTS `lonaris_chat` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `lonaris_chat` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `lonaris_chat`;
 
 -- Dumping structure for table lonaris_chat.failed_jobs
