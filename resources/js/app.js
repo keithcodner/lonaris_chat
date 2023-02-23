@@ -77,7 +77,7 @@ function run(){
     
             const message = event.message;
     
-            $('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
+            $('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" ><p>' + message + '</p></li>').appendTo($('.messages ul'));
         });
     });
 }
