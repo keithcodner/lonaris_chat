@@ -14,6 +14,7 @@
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
     <link rel='stylesheet prefetch' href='https://applesvg.com/assets/front/css/lonaris_chat_styles.css'>
+    
 
     <style>
         .modal {
@@ -34,14 +35,12 @@
 </head>
 
 <body>
-
     <div id="frame">
-
         <div id="sidepanel">
             <div id="profile">
                 <div class="wrap">
-                    <img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
-                    <p>Mike Ross</p>
+                    <img id="profile-img" src="{{  auth()->user()->avatar}}" class="online" alt="" />
+                    <p> {{  auth()->user()->name}} </p>
                     <i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
                     <div id="status-options">
                         <ul>
@@ -67,15 +66,15 @@
                         <label for="twitter">
                 <i class="fa fa-facebook fa-fw" aria-hidden="true"></i>
               </label>
-                        <input name="twitter" type="text" value="mikeross" />
+                        <input name="twitter" type="text" value="{{ auth()->user()->name}}" />
                         <label for="twitter">
                 <i class="fa fa-twitter fa-fw" aria-hidden="true"></i>
               </label>
-                        <input name="twitter" type="text" value="ross81" />
+                        <input name="twitter" type="text" value="{{ auth()->user()->email}}" />
                         <label for="twitter">
                 <i class="fa fa-instagram fa-fw" aria-hidden="true"></i>
               </label>
-                        <input name="twitter" type="text" value="mike.ross" />
+                        <input name="twitter" type="text" value="{{  auth()->user()->status}}" />
                     </div>
                 </div>
             </div>
@@ -86,17 +85,21 @@
                 <input type="text" placeholder="Search contacts..." />
             </div>
             <div id="contacts">
+
                 <ul>
-                    <li class="contact active">
-                        <div class="wrap">
-                            <span class="contact-status busy"></span>
-                            <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-                            <div class="meta">
-                                <p class="name">Harvey Specter</p>
-                                <p class="preview">Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things.</p>
+                    @foreach ($your_convo_collection as $convo)
+                        <li id="{{$convo->end_user_id}}" class="contact">
+                            <div class="wrap">
+                                <span class="contact-status busy"></span>
+                                <img src="{{$convo->end_user_avatar}}" alt="" />
+                                <div class="meta">
+                                    <p class="name">{{$convo->end_user_name}}</p>
+                                    <p class="preview">{{$convo->last_message}}</p>
+                                </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
+                        
+                    @endforeach
                 </ul>
             </div>
             <div id="bottom-bar">
@@ -112,8 +115,8 @@
         </div>
         <div class="content">
             <div class="contact-profile">
-                <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-                <p>Harvey Specter</p>
+                <img src="https://applesvg.com/assets/images/chatbot.png" alt="" />
+                <p>Lonaris Chat Bot</p>
                 <div class="social-media">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                     <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -123,8 +126,8 @@
             <div class="messages">
                 <ul>
                     <li class="sent">
-                        <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
-                        <p>How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!</p>
+                        <img src="https://applesvg.com/assets/images/chatbot.png" alt="" />
+                        <p>Welcome to Lonaris Chat, pick one of your friends to talk to!</p>
                     </li>
                 </ul>
             </div>
@@ -169,17 +172,18 @@
                 <!--Body-->
                 <p>Pick a user to message: </p>
                 <br /><br />
-                <select class="form-select p-2 m-4"  >
-                  <option selected>- Select User -</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                <select id="user_picker" class="form-select p-2 m-4"  >
+                    <option value="0" selected>- Select User -</option>
+                    @foreach ($all_users as $user)
+                        <option value="{{$user->id}}">{{$user->name}}</option>
+                    @endforeach
                 </select>
                 <br /><br />
                 <!--Footer-->
                 <div class="flex justify-end pt-2">
-                    <button class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Message</button>
                     <button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">Close</button>
+                    <button id="start_convo" class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2 border-solid border-2">Message</button>
+                    
                 </div>
 
             </div>
@@ -190,88 +194,133 @@
     </div>
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script>
-        var openmodal = document.querySelectorAll('.modal-open')
+        $(function(){
+            //-----------Jquery Extended Function-------------
+            jQuery.extend({
+                getValues: function(data, url) {
+                    var result = null;
+                    $.ajax({
+                        url: url,
+                        type: 'post',
+                        async: true,
+                        data: data,
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        async: false,
+                        success: function(datas) {
+                            result = datas;
+                        }
+                    });
+                    return result;
+                }
+            });
+
+            //----------Stuff to make things work-------------
+            $('#start_convo').click(function(){
+
+                let user_picker_val = $('#user_picker').val();
+                if(user_picker_val == 0){
+                    alert('Please select a valid user.');
+                }else{
+                    let create_convo = $.getValues({value1: user_picker_val}, '{{route("create-convo")}}');
+
+                    alert(create_convo);
+
+                }
+            });
+
+
+        });
         
-        for (var i = 0; i < openmodal.length; i++) {
-          openmodal[i].addEventListener('click', function(event){
-          event.preventDefault()
-          toggleModal()
+    </script>
+
+    <script>
+      //-----------------------STUFF I DIDN'T PROGRAM-------------------------------    
+
+      var openmodal = document.querySelectorAll('.modal-open')
+
+      for (var i = 0; i < openmodal.length; i++) {
+          openmodal[i].addEventListener('click', function(event) {
+              event.preventDefault()
+              toggleModal()
           })
-        }
-        
-        const overlay = document.querySelector('.modal-overlay')
-        overlay.addEventListener('click', toggleModal)
-        
-        var closemodal = document.querySelectorAll('.modal-close')
-        for (var i = 0; i < closemodal.length; i++) {
+      }
+
+      const overlay = document.querySelector('.modal-overlay')
+      overlay.addEventListener('click', toggleModal)
+
+      var closemodal = document.querySelectorAll('.modal-close')
+      for (var i = 0; i < closemodal.length; i++) {
           closemodal[i].addEventListener('click', toggleModal)
-        }
-        
-        document.onkeydown = function(evt) {
+      }
+
+      document.onkeydown = function(evt) {
           evt = evt || window.event
           var isEscape = false
           if ("key" in evt) {
-          isEscape = (evt.key === "Escape" || evt.key === "Esc")
+              isEscape = (evt.key === "Escape" || evt.key === "Esc")
           } else {
-          isEscape = (evt.keyCode === 27)
+              isEscape = (evt.keyCode === 27)
           }
           if (isEscape && document.body.classList.contains('modal-active')) {
-          toggleModal()
+              toggleModal()
           }
-        };
-    
-    
-    function toggleModal () {
-      const body = document.querySelector('body')
-      const modal = document.querySelector('.modal')
-      modal.classList.toggle('opacity-0')
-      modal.classList.toggle('pointer-events-none')
-      body.classList.toggle('modal-active')
-    }
-    //--------------------------------------------
+      };
+
+
+      function toggleModal() {
+          const body = document.querySelector('body')
+          const modal = document.querySelector('.modal')
+          modal.classList.toggle('opacity-0')
+          modal.classList.toggle('pointer-events-none')
+          body.classList.toggle('modal-active')
+      }
+      //--------------------------------------------
 
       $(".messages").animate({
-        scrollTop: $(document).height()
+          scrollTop: $(document).height()
       }, "fast");
       $("#profile-img").click(function() {
-        $("#status-options").toggleClass("active");
+          $("#status-options").toggleClass("active");
       });
       $(".expand-button").click(function() {
-        $("#profile").toggleClass("expanded");
-        $("#contacts").toggleClass("expanded");
+          $("#profile").toggleClass("expanded");
+          $("#contacts").toggleClass("expanded");
       });
       $("#status-options ul li").click(function() {
-        $("#profile-img").removeClass();
-        $("#status-online").removeClass("active");
-        $("#status-away").removeClass("active");
-        $("#status-busy").removeClass("active");
-        $("#status-offline").removeClass("active");
-        $(this).addClass("active");
-        if ($("#status-online").hasClass("active")) {
-          $("#profile-img").addClass("online");
-        } else if ($("#status-away").hasClass("active")) {
-          $("#profile-img").addClass("away");
-        } else if ($("#status-busy").hasClass("active")) {
-          $("#profile-img").addClass("busy");
-        } else if ($("#status-offline").hasClass("active")) {
-          $("#profile-img").addClass("offline");
-        } else {
           $("#profile-img").removeClass();
-        };
-        $("#status-options").removeClass("active");
+          $("#status-online").removeClass("active");
+          $("#status-away").removeClass("active");
+          $("#status-busy").removeClass("active");
+          $("#status-offline").removeClass("active");
+          $(this).addClass("active");
+          if ($("#status-online").hasClass("active")) {
+              $("#profile-img").addClass("online");
+          } else if ($("#status-away").hasClass("active")) {
+              $("#profile-img").addClass("away");
+          } else if ($("#status-busy").hasClass("active")) {
+              $("#profile-img").addClass("busy");
+          } else if ($("#status-offline").hasClass("active")) {
+              $("#profile-img").addClass("offline");
+          } else {
+              $("#profile-img").removeClass();
+          };
+          $("#status-options").removeClass("active");
       });
 
       function newMessage() {
-        message = $(".message-input input").val();
-        if ($.trim(message) == '') {
-          return false;
-        }
-        $('<li class = "sent" > < img src = "http://emilcarlsson.se/assets/mikeross.png" alt = "" /> <p> ' + message + '</p> </li>').appendTo($('.messages ul'));
-            $('.message-input input').val(null); $('.contact.active .preview').html(' < span > You: < /span>' + message);
-              $(".messages").animate({
-                scrollTop: $(document).height()
-              }, "fast");
-            };
+          message = $(".message-input input").val();
+          if ($.trim(message) == '') {
+              return false;
+          }
+          $('<li class = "sent" > < img src = "http://emilcarlsson.se/assets/mikeross.png" alt = "" /> <p> ' + message + '</p> </li>').appendTo($('.messages ul'));
+          $('.message-input input').val(null);
+          $('.contact.active .preview').html(' < span > You: < /span>' + message);
+          $(".messages").animate({
+              scrollTop: $(document).height()
+          }, "fast");
+      };
     </script>
     <script src="{{ mix('js/app.js') }}"></script>
 </body>

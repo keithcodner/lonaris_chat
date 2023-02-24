@@ -41,6 +41,7 @@ Route::middleware([
     |--------------------------------------------------------------------------
     */
     Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+    Route::post('/create_conversation', [ChatController::class, 'create_conversation'])->name('create-convo');
 });
 
 
