@@ -88,7 +88,16 @@
 
                 <ul>
                     @foreach ($your_convo_collection as $convo)
-                        <li id="{{$convo->end_user_id}}" class="contact">
+                        <li id="{{$convo->end_user_id}}" 
+                            class="contact convo"
+                            data1="{{$convo->end_user_id}}"
+                            data2="{{$convo->end_user_avatar}}"
+                            data3="{{$convo->end_user_name}}"
+                            data4="{{$convo->last_message}}"
+                            data5="{{$convo->convo_id}}"
+                            data6="false"
+                            >
+
                             <div class="wrap">
                                 <span class="contact-status busy"></span>
                                 <img src="{{$convo->end_user_avatar}}" alt="" />
@@ -115,8 +124,8 @@
         </div>
         <div class="content">
             <div class="contact-profile">
-                <img src="https://applesvg.com/assets/images/chatbot.png" alt="" />
-                <p>Lonaris Chat Bot</p>
+                <img id="other_person_avatar" src="https://applesvg.com/assets/images/chatbot.png" alt="" />
+                <p id="recipient_name">Lonaris Chat Bot</p>
                 <div class="social-media">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                     <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -124,7 +133,7 @@
                 </div>
             </div>
             <div class="messages">
-                <ul>
+                <ul id="message_list">
                     <li class="sent">
                         <img src="https://applesvg.com/assets/images/chatbot.png" alt="" />
                         <p>Welcome to Lonaris Chat, pick one of your friends to talk to!</p>
@@ -195,6 +204,108 @@
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script>
         $(function(){
+
+            //Global vars
+            let current_convo = "";
+            let current_name = "";
+            let current_avatar = "";
+            let current_private_ch = "";
+            //let channel = null;
+
+            //--when you click conversation---
+            $('.convo').click(function(){
+
+                let already_picked = $(this).attr('data6');
+                current_convo = $(this).attr('data5');
+                current_name = $(this).attr('data3');
+                current_avatar = $(this).attr('data2');
+
+
+                $('.convo').removeClass("active");
+                $(this).addClass('active');
+
+                $('#other_person_avatar').attr("src", current_avatar);
+                $('#message_list').empty();
+                $('#recipient_name').text(current_name);
+
+                current_private_ch = 'private.chat.'+current_convo;
+                
+                //channel = null;
+
+                if(already_picked == "false"){
+                    $(this).attr("data6", "true");
+                    subscribe_to_convo_ch(current_convo, current_name, current_avatar, current_private_ch);
+                }
+
+                
+                //alert(convo_id);
+
+            });
+
+            //-------Default Subscribe--------
+            const form = document.getElementById('form');
+            const inputMessage = document.getElementById('input-message');
+
+            form.addEventListener('submit', function(event){
+                event.preventDefault();
+                const userInput = inputMessage.value;
+
+                axios.post('/chat-message', {
+                    message: userInput,
+                    convo: current_convo
+                })
+
+                inputMessage.value = "";
+            });
+
+            function subscribe_to_convo_ch(id, name, avatar, prv_channel){
+                
+                const channel = window.Echo.private(prv_channel);
+                console.log(prv_channel);
+            
+                channel.subscribed( () => {
+                    console.log('subscribed to '+name+' chat. With channel: ' +id);
+                }).listen('.chat-message', (event) => {
+                    console.log(event);
+            
+                    const message = event.message;
+            
+                    $('<li class="sent"><img src="" alt="" ><p>' + message + '</p></li>').appendTo($('.messages ul'));
+                });
+               
+            }
+
+            function run(){
+                return fetch('/sanctum/csrf-cookie', {
+                    headers: {
+                        'content-type': 'application/json',
+                        'accept': 'application/json'
+                    },
+                    credentials: 'include'
+                })
+                // .then(() => logout())
+                // .then(() => {
+                //     return login();
+                // })
+                .then(() => {
+                    const channel = Echo.private('private.chat.0000');
+                
+                    channel.subscribed( () => {
+                        console.log('subscribed to private chat with chat bot');
+                    }).listen('.chat-message', (event) => {
+                        console.log(event);
+                
+                        const message = event.message;
+                
+                        $('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" ><p>' + message + '</p></li>').appendTo($('.messages ul'));
+                    });
+                });
+            }
+
+            //Run app
+            //run();
+
+
             //-----------Jquery Extended Function-------------
             jQuery.extend({
                 getValues: function(data, url) {
