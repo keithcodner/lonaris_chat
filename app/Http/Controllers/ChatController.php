@@ -52,7 +52,8 @@ class ChatController extends Controller
                     "end_user_id" => $end_user->id,
                     "end_user_avatar" => $end_user->avatar,
                     "last_message" => $last_convo->content,
-                    "first_convo" => $first_convo
+                    "first_convo" => $first_convo,
+                    "convo_id" => $conversation->id
                 ]);
 
             //I started the convo
@@ -67,7 +68,8 @@ class ChatController extends Controller
                     "end_user_id" => $end_user->id,
                     "end_user_avatar" => $end_user->avatar,
                     "last_message" => $last_convo->content,
-                    "first_convo" => $first_convo
+                    "first_convo" => $first_convo,
+                    "convo_id" => $conversation->id
                 ]);
             }
 
@@ -102,8 +104,6 @@ class ChatController extends Controller
                 'all_users' => $all_users
             ]); 
         }
-
-
     }
 
     public function create_conversation(Request $request)
@@ -151,7 +151,7 @@ class ChatController extends Controller
 
     public function chat_msg(Request $request)
     {
-        event(new \App\Events\ChatMessageEvent($request->message, auth()->user()));
+        event(new \App\Events\ChatMessageEvent($request->message, auth()->user(), $request->convo));
         return null;
     }
 
