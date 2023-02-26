@@ -95,9 +95,10 @@
                             data3="{{$convo->end_user_name}}"
                             data4="{{$convo->last_message}}"
                             data5="{{$convo->convo_id}}"
-                            data6="false"
+                            data6="false"  {{-- if side panel convo has been checked --}}
                             >
 
+                            
                             <div class="wrap">
                                 <span class="contact-status busy"></span>
                                 <img src="{{$convo->end_user_avatar}}" alt="" />
@@ -134,10 +135,17 @@
             </div>
             <div class="messages">
                 <ul id="message_list">
+
+
                     <li class="sent">
                         <img src="https://applesvg.com/assets/images/chatbot.png" alt="" />
                         <p>Welcome to Lonaris Chat, pick one of your friends to talk to!</p>
                     </li>
+
+                    {{-- <li class="replies">
+                        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                        <p>Excuses don't win championships.</p>
+                    </li> --}}
                 </ul>
             </div>
             <div class="message-input">
@@ -150,6 +158,8 @@
                 </form>
             </div>
         </div>
+
+        <div id="hidden_chat" style="display:none;"></div>
 
     </div>
   
@@ -210,7 +220,7 @@
             let current_name = "";
             let current_avatar = "";
             let current_private_ch = "";
-            //let channel = null;
+            let current_end_user_id = "";
 
             //--when you click conversation---
             $('.convo').click(function(){
@@ -219,7 +229,10 @@
                 current_convo = $(this).attr('data5');
                 current_name = $(this).attr('data3');
                 current_avatar = $(this).attr('data2');
+                current_end_user_id = $(this).attr('data1');
 
+                //Get chat history if there is one
+                loadChatFromLS(current_convo);
 
                 $('.convo').removeClass("active");
                 $(this).addClass('active');
@@ -230,15 +243,10 @@
 
                 current_private_ch = 'private.chat.'+current_convo;
                 
-                //channel = null;
-
                 if(already_picked == "false"){
                     $(this).attr("data6", "true");
                     subscribe_to_convo_ch(current_convo, current_name, current_avatar, current_private_ch);
                 }
-
-                
-                //alert(convo_id);
 
             });
 
@@ -252,8 +260,12 @@
 
                 axios.post('/chat-message', {
                     message: userInput,
-                    convo: current_convo
+                    convo: current_convo,
+                    sender: '{{auth()->user()->id}}',
+                    receiver: current_end_user_id 
                 })
+
+                updateChatLS(current_convo);
 
                 inputMessage.value = "";
             });
@@ -269,11 +281,48 @@
                     console.log(event);
             
                     const message = event.message;
-            
-                    $('<li class="sent"><img src="" alt="" ><p>' + message + '</p></li>').appendTo($('.messages ul'));
+
+                    if(event.sender ==  '{{auth()->user()->id}}'){
+                        $('<li class="sent"><img src="'+current_avatar+'" alt="" ><p>' + message + '</p></li>').appendTo($('.messages ul'));
+                    }else{
+                        $('<li class="replies"><img src="{{auth()->user()->avatar}}" alt="" ><p>' + message + '</p></li>').appendTo($('.messages ul'));
+                    }
                 });
                
             }
+
+            function updateChatLS(chatID){
+
+                //if statement is so not to create a ls with blank content
+                if (localStorage.getItem(chatID) === null) {
+                    localStorage.setItem(chatID, '');
+                }
+
+                localStorage.setItem(chatID, '');
+
+                //var retrievedObject = localStorage.getItem(chatID);
+                var appendedData = $('#message_list').html();
+                localStorage.setItem(chatID, appendedData);
+            }
+
+            function loadChatFromLS(chatID){
+                //if statement is so not to create a ls with blank content
+                if (localStorage.getItem(chatID) === null) {
+                    localStorage.setItem(chatID, '');
+                }
+
+                var retrievedObject = localStorage.getItem(chatID);
+                $('#message_list').empty();
+                $('#message_list').append(retrievedObject); 
+              
+
+            }
+
+            function loadChatFromDB(chatID, chatData){
+
+            }
+
+
 
             function run(){
                 return fetch('/sanctum/csrf-cookie', {

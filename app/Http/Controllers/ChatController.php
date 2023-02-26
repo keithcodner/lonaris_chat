@@ -151,7 +151,7 @@ class ChatController extends Controller
 
     public function chat_msg(Request $request)
     {
-        event(new \App\Events\ChatMessageEvent($request->message, auth()->user(), $request->convo));
+        event(new \App\Events\ChatMessageEvent($request->message, auth()->user(), $request->convo, $request->sender, $request->receiver));
         return null;
     }
 

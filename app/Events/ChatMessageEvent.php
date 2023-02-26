@@ -19,16 +19,20 @@ class ChatMessageEvent implements ShouldBroadcast
     private string $message;
     private User $user;
     private string $convo;
+    private string $sender;
+    private string $receiver;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(string $message, User $user, string $convo)
+    public function __construct(string $message, User $user, string $convo, string $sender, string $receiver)
     {
         $this->message = $message; 
         $this->user = $user;
         $this->convo = $convo;
+        $this->sender = $sender;
+        $this->receiver = $receiver;
     }
 
     /**
@@ -50,7 +54,9 @@ class ChatMessageEvent implements ShouldBroadcast
     {
         return [
             'message' => $this->message,
-            'user' => $this->user->only(['name', 'email'])
+            'user' => $this->user->only(['name', 'email']),
+            'sender' => $this->sender,
+            'receiver' => $this->receiver,
         ];
     }
 }
